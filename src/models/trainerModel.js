@@ -9,14 +9,12 @@ const trainerSchema = new mongoose.Schema({
         type: Number,
         required: [true, "age required"],
     },
-    pokemon: {
-        type: [
-            {
-                type: mongoose.Schema.ObjectId,
-                ref: "pokemon",
-            },
-        ],
-    },
+    pokemon: [
+        {
+            type: mongoose.Schema.ObjectId,
+            ref: "pokemon",
+        },
+    ],
 });
 
 const trainerModel = mongoose.model("trainer", trainerSchema);

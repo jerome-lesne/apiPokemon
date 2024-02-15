@@ -55,7 +55,7 @@ const deletePoke = async (req, res) => {
         });
         if (trainer) {
             await trainerModel.updateOne(
-                { pokemon: req.params.idPokemon },
+                { $in: { pokemon: req.params.idPokemon } },
                 { $pull: { pokemon: req.params.idPokemon } },
             );
             await pokemonModel.deleteOne({ _id: req.params.idPokemon });

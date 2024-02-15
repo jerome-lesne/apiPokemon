@@ -31,10 +31,7 @@ const setTrainer = async (req, res) => {
 
 const editTrainer = async (req, res) => {
     try {
-        const trainer = await trainerModel.updateOne(
-            { _id: req.params.id },
-            req.body,
-        );
+        await trainerModel.updateOne({ _id: req.params.id }, req.body);
         res.json("trainer modified");
     } catch (e) {
         res.json(e);
@@ -54,7 +51,7 @@ const getTrainerPoke = async (req, res) => {
 
 const deleteTrainer = async (req, res) => {
     try {
-        const trainer = await trainerModel.deleteOne({ _id: req.params.id });
+        await trainerModel.deleteOne({ _id: req.params.id });
         res.json("trainer deleted");
     } catch (e) {
         res.json(e);
